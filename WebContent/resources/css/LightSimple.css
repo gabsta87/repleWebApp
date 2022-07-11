@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+
+.mainMenuElement{
+   align : center;
+/*    style="margin: 10px;" */
+    margin : 10px;
+}
+
+.mainElement{
+	margin : 10px;
+}

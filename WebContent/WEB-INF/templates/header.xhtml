@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<ui:composition>
+		<h:form>
+			<p:menubar id="menuBar">
+				<p:menuitem value="Home" url="index.xhtml" />
+				<p:menuitem value="Exercise" url="exercice.xhtml" />
+				<p:menuitem value="Exam" url="exam.xhtml" />
+				<p:menuitem value="Settings" url="settings.xhtml" />
+				
+				<p:menuitem>
+                <p:growl id="growl2" life="2000" />
+                <p:commandButton value="Ajax Submit" id="ajaxMenuItem" update="growl2" 
+                    actionListener="#{beanMap.buttonAction}" styleClass="ui-priority-primary" />
+				</p:menuitem>
+				
+                <f:facet name="options">
+                
+                    <p:growl id="growl" life="2000" />
+                    <p:commandButton value="Ajax Submit" id="ajaxFacet" update="growl" 
+                        actionListener="#{beanMap.buttonAction}" />
+               
+                    <p:inputText id="loginPanel" style="margin-right:10px" 
+                        value="#{beanIndex.userName}" 
+                        placeholder="username" rendered="#{!beanIndex.userLogged}"/>
+                    <p:password id="passwordPanel" style="margin-right:10px"
+                        value="#{beanIndex.password}" 
+                        placeholder="Password" rendered="#{!beanIndex.userLogged}"/>
+                    <p:commandButton id="loginButton" value="Login"
+                        action="#{beanIndex.login}" 
+                        update="menuBar" rendered="#{!beanIndex.userLogged}" />
+                        
+                        
+                    <p:outputLabel id="userLoggedPanel" style="margin-right:10px" 
+                        value="#{beanIndex.userName}"
+                        rendered="#{beanIndex.userLogged}" />
+                    <p:commandButton id="logoutButton" value="Logout" 
+                        action="#{beanIndex.logout()}" 
+                        update="menuBar" rendered="#{beanIndex.userLogged}" />
+               </f:facet>
+			</p:menubar>
+		</h:form>
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title><h:outputText value="Reple" /></title>
+    <h:outputStylesheet library="css" name="LightSimple.css" />
+</h:head>
+
+<h:body>
+    <div>
+    <ui:insert name="header" >
+        <ui:include src="/WEB-INF/templates/header.xhtml" />
+    </ui:insert>
+    </div>
+
+	<h2 align="center">Exercice</h2>
+
+	<div align="center" >
+		<h:form id="exercice">
+		
+        <div class="mainElement">
+			<p:outputLabel id="question" value="#{beanTrainingExercice.question} : "
+			rendered="#{!beanTrainingExercice.exerciceFinished}"/>
+			<p:inputText id="answer" value="#{beanTrainingExercice.actualTry}"
+			disabled="#{beanTrainingExercice.exerciceFinished}"/>
+        </div>
+			
+        <div class="mainElement">
+	        <h:outputText id="result" style="color:red;" rendered="#{beanTrainingExercice.answerWrong}"
+	        value="Wrong, the answer was : #{beanTrainingExercice.lastExpectedAnswer}" />
+        </div>
+            
+        <div class="mainElement">
+			<h:outputText id="counter" rendered="#{!beanTrainingExercice.exerciceFinished}"
+		         value="Still #{beanTrainingExercice.remainingItems} to go" />
+			<h:outputText id="errorsCount" rendered="#{beanTrainingExercice.exerciceFinished}"
+                    value="You did #{beanTrainingExercice.errors} errors" />
+        </div>
+		
+        <div class="mainElement">
+			<p:commandButton id="submitButton" value="Submit"
+				action="#{beanTrainingExercice.clickSubmit()}"
+				validateClient="true" update="result exercice"
+				icon="ui-icon-check" disabled="#{beanTrainingExercice.exerciceFinished}"/>
+
+            <p:commandButton id="easyButton" value="Too Easy"
+                 action="#{beanTrainingExercice.clickEasy()}"
+                 validateClient="true" update="exercice" reset="answer"
+                 disabled="#{beanTrainingExercice.exerciceFinished}"/>
+
+            <p:commandButton id="ignoreButton" value="Ignore"
+                 action="#{beanTrainingExercice.clickIgnore()}"
+                 validateClient="true" update="exercice" reset="answer"
+                 disabled="#{beanTrainingExercice.exerciceFinished}"/>
+        </div>
+		</h:form>
+        <p:commandButton id="reset" align="center" update="exercice"
+            value="New exercise" action="#{beanTrainingExercice.init()}"/>
+	</div>
+
+</h:body>
+</html>

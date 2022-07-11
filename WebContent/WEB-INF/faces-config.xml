@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+	version="2.3">
+	<application>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>fr</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+	</application>
+	<managed-bean>
+		<managed-bean-name>beanExam</managed-bean-name>
+		<managed-bean-class>view.beans.BeanExam</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>beanSettings</managed-bean-name>
+		<managed-bean-class>view.beans.BeanSettings</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>beanTrainingExercice</managed-bean-name>
+		<managed-bean-class>view.beans.BeanTrainingExercice</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>beanIndex</managed-bean-name>
+		<managed-bean-class>view.beans.BeanIndex</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>beanMap</managed-bean-name>
+		<managed-bean-class>view.beans.BeanMap</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- <navigation-rule> <navigation-case> <from-outcome>booksList</from-outcome> 
+		<to-view-id>booksList</to-view-id> </navigation-case> </navigation-rule> -->
+</faces-config>

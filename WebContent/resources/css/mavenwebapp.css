@@ -1,0 +1,70 @@
+html{
+	background-color: #18181f ;
+}
+.mainHeader {
+	width: 100%;
+	border-radius:10px;
+	background: linear-gradient(to right,blue,white,red);
+	min-height: 64px;
+	margin-bottom: 6px;
+	color: black;
+	text-align:center;
+	font-weight: bolder;
+	font-size: 20px !important;
+}
+
+table.mainHeader>tbody>tr:first-child>td:first-child {
+	/*padding-left: 72px;*/
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+	border: none;
+}
+
+.ui-dialog {
+	width: auto !important;
+}
+
+.ui-state-default {
+	color: lime;
+	text-shadow: 0 1px 2px black;
+}
+.ui-widget-content{
+	color:deepskyblue;
+}
+.ui-icon-home{
+	font-size: 20px;
+}
+.BTN {
+	width:150px;
+}
+.ui-datepicker .ui-datepicker-header{
+	color:red !important;
+	background-color:mediumblue;
+	}
+.ui-widget .ui-icon.fa{
+	width:20px;
+	height:20px;
+	font-size:17px;
+	color:gold;
+	text-shadow: 0 0 0 ;
+	}
+.ui-widget{
+	font-size: 16px;
+}
+.ui-menu{
+	position: fixed !important;
+}
+.ui-menu .ui-menuitem-link .ui-menuitem-icon {
+	color:white !important;
+}
+.ui-panel .ui-panel-titlebar{
+	text-align: center;
+}
+.ui-widget-content .ui-inputfield{
+	background-color: black;
+	color: white;
+}
+.ui-selectlistbox-filter.ui-inputfield{
+	width: 86% !important;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title><h:outputText value="Reple" /></title>
+	<h:outputStylesheet library="css" name="LightSimple.css" />
+</h:head>
+
+<h:body>
+    <div>
+    <ui:insert name="header" >
+        <ui:include src="/WEB-INF/templates/header.xhtml" />
+    </ui:insert>
+    </div>
+
+	<h2 align="center">Exam</h2>
+
+	<div align="center">
+		<h:form id="exam">
+			<div class="mainElement">
+				<p:outputLabel id="question" value="#{beanExam.question} : " />
+				<p:inputText id="answer" value="#{beanExam.actualTry}" />
+			</div>
+            <div class="mainElement">
+                <h:outputText id="result" style="color:red;"
+                    rendered="#{beanExam.answerWrong}"
+                    value="Wrong, the answer was : #{beanExam.lastExpectedAnswer}" />
+            </div>
+			<div class="mainElement">
+				<h:outputText id="counter" rendered="#{!beanExam.exerciceFinished}"
+                    value="Still #{beanExam.remainingItems} to go" />
+                <h:outputText id="errorsCount" rendered="#{beanExam.exerciceFinished}"
+                    value="You did #{beanExam.errors} errors" />
+			</div>
+			<div class="mainElement">
+				<p:commandButton id="newExam" value="New Exam"
+					actionListener="#{beanExam.init()}" update="exam" reset="answer" />
+			</div>
+
+		</h:form>
+		<p:button align="center" value="Main menu" href="index.xhtml" />
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title><h:outputText value="Reple" /></title>
+	<h:outputStylesheet library="css" name="LightSimple.css" />
+</h:head>
+
+<h:body>
+    <div>
+        <ui:insert name="header" >
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+        </ui:insert>
+    </div>
+
+	<h2 align="center">Settings</h2>
+	<div align="center">
+		<h:form>
+			<div class="mainElement">
+				<h:outputText for="exSize" value="Exercice size:" />
+				<p:inputNumber id="exSize" value="#{beanSettings.exerciceSize}" size="3" decimalPlaces="0"
+				onchange="submit()"/>
+			</div>
+
+			<div class="mainElement">
+				<h:outputLabel for="known" value="Known items:" />
+				<p:selectCheckboxMenu id="countriesK"
+					value="#{beanSettings.knownItems}" label="Items" multiple="true"
+					filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+					<f:selectItems value="#{beanSettings.items}" />
+					<p:ajax listener="#{beanSettings.knownItems}" />
+				</p:selectCheckboxMenu>
+			</div>
+			<div class="mainElement">
+				<h:outputLabel for="ignored" value="Ignored items:" />
+				<p:selectCheckboxMenu id="countriesI"
+					value="#{beanSettings.ignoredItems}" label="Items" multiple="true"
+					filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+					<f:selectItems value="#{beanSettings.items}" />
+					<p:ajax listener="#{beanSettings.ignoredItems}" />
+				</p:selectCheckboxMenu>
+			</div>
+			<div class="mainElement">
+				<p:button id="cancel" value="Cancel" href="index.xhtml"
+				type="submit" />
+				<p:button id="confirm" value="Confirm" href="index.xhtml"
+				accesskey="Enter" type="submit" onclick="#{beanSettings.saveData()}" />
+			</div>
+
+		</h:form>
+	</div>
+</h:body>
+</html>
